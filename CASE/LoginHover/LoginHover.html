@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="LoginHover.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>LoginHover</h1>
+        <form action="#">
+            <input class="tbx" type="text" placeholder="用户名" name="username">
+            <input class="tbx" type="password" placeholder="密码" name="password" id="">
+            <button type="submit">登录</button>
+        </form>
+    </div>
+
+    <script>
+        const con = document.querySelector(".container");
+
+        // 定义两个函数开关
+        let isIn = true;
+        let isOut = false;
+
+        // 未出生的元素取个名字
+        var span;
+
+        // 监听鼠标进去的事件 和 方法
+        con.addEventListener("mouseenter", (e) => {
+            if (isIn) {
+
+                // 获取鼠标位置
+                let inx = e.clientX - e.target.offsetLeft;
+                let iny = e.clientY - e.target.offsetTop;
+
+                // 创建一个span元素 给它对于的出生坐标
+                let el = document.createElement("span");
+                el.classList.add('in');
+                el.classList.remove('out');
+                el.style.left = inx + 'px';
+                el.style.top = iny + 'px';
+                con.appendChild(el);
+                isIn = false;
+                isOut = true;
+            }
+        })
+
+
+        // 监听鼠标出来的事件
+        con.addEventListener("mouseleave", (e) => {
+            if (isOut) {
+                // 获取离开鼠标的位置
+                let inx = e.clientX - e.target.offsetLeft;
+                let iny = e.clientY - e.target.offsetTop;
+
+                let el2 = document.querySelector('.in');
+                el2.classList.add('out');
+                el2.classList.remove('in');
+                el2.style.left = inx + 'px';
+                el2.style.top = iny + 'px';
+
+                isOut = false;
+                // 动画结束后在删除
+                setTimeout(() => {
+                    con.removeChild(el2);
+                    isIn = true;
+                }, 500)
+            }
+        })
+    </script>
+</body>
+
+</html>
