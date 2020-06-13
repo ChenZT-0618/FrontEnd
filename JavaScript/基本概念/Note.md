@@ -31,7 +31,7 @@ JavaScript的浮点运算结果不太精确，eg：0.1 + 0.2
 #### Boolean ：逻辑判断 &emsp;ture|false  
 #### **Null** ： 表示一个空对象指针，所以**当typeof null时，结果为object**  
 #### **Undefined**  : 声明变量不赋值   
-**实际上，undefined是派生自null的，所以 null == undefined的值为true**  
+实际上，undefined是派生自null的，所以 null == undefined的值为true  
 
 #### 类型转换：  
 * 其他类型转strning   
