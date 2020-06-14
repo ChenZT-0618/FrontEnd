@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 对象创建方法一
+        var a = new Object();
+        // 添加属性:两种方式
+        a.name = "anv";
+        a.gender = "male";
+        a.age = "14";
+        a['id'] = 10086; // 这种方式可以传递变量
+
+
+        // 对象创建方法二
+        var c = {}; // 添加属性同上
+
+        // 对象创建方法三
+        var person = {
+            name: "anv",
+            gender: "male",
+            age: 14,
+            isAdult: true
+        }
+        document.write(person);
+
+        // 删除属性
+        delete a.age;
+        delete a['gender'];
+        document.write(a.id);
+
+        //检查对象是否含有xxx属性
+        document.write(a.hasOwnProperty('id2') + '<br>');
+        document.write('id2' in a);
+
+        // 留个坑，遍历对象
+    </script>
+</body>
+
+</html>
