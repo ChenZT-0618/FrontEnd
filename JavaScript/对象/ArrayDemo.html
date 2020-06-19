@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var colors = ["red", "blued", "green"];
+        var test = colors.toLocaleString(); // red,blued,green  string
+        var test2 = colors.join(";"); // red;blued;green    string
+        var test3 = colors.toString(); // red,blued,green   string
+        var test4 = colors.valueOf(); // (3) ["red", "blued", "green"]  object
+        console.log(test);
+        console.log(test2);
+        console.log(test3);
+        console.log(test4);
+        console.log(typeof test);
+        console.log(typeof test2);
+        console.log(typeof test3);
+        console.log(typeof test4);
+        var values = [1, 5, 10, 15];
+        console.log(values.sort()); //(4) [1, 10, 15, 5]
+
+        function compare(a, b) {
+            return a - b;
+        }
+        console.log(values.sort(function (a, b) {
+            return a - b;
+        }))
+
+
+        var color2 = colors.concat();
+        var color3 = colors.concat("yellow", "black");
+        console.log(color2);
+        console.log(color3);
+
+        console.log(color3.slice(2)); // (3) ["green", "yellow", "black"]
+        console.log(color3.slice(1, 4)); // (3) ["blued", "green", "yellow"]
+        console.log(color3.slice(-3, -1)); // (2) ["green", "yellow"]
+        console.log(color3.slice(2, 4)); // (2) ["green", "yellow"]
+
+
+        // console.log(color3.splice(0, 2)); // (2) ["red", "blued"]
+        // console.log(color3); // (3) ["green", "yellow", "black"]
+        // console.log(color3.splice(2, 0, "orange")); // []
+        // console.log(color3); // (6) ["red", "blued", "orange", "green", "yellow", "black"]
+        console.log(color3.splice(2, 2, "orange", "pink")); // (2) ["green", "yellow"]
+        console.log(color3); // (5) ["red", "blued", "orange", "pink", "black"]
+
+
+        var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        var Result = numbers.filter(function (item) {
+            return item % 2 == 0;
+        })
+        numbers.forEach(function (item) {
+            console.log(item);
+        });
+
+        console.log(Result); //[2, 3, 4, 5, 6, 7, 8, 9, 10]
+        console.log(numbers); //[2, 3, 4, 5, 6, 7, 8, 9, 10]
+    </script>
+</body>
+
+</html>
