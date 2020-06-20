@@ -176,3 +176,41 @@ var Result = numbers.map(function (item) {
 console.log(Result); //[2, 3, 4, 5, 6, 7, 8, 9, 10]
 ```
 5. forEach():   &emsp;该方法没有返回值，本质上与使用for循环遍历数组一样。
+
+### Function类型
+```javascript
+var sum = function (num1, num2) {
+    return num1 + num2;
+}; // 注意定义函数结尾要加分号
+console.log(sum(2, 3));
+```
+* **函数名实际上是一个指向函数对象的指针，不会与某个函数绑定**
+
+#### 函数内部属性
+1. arguments：  一个类数组对象，包含传入函数中的所有参数  
+   arguments中还有一个名为callee的指针，指向拥有这个arguments对象的函数 -> 可用于递归函数
+    ```javascript
+    function factorial(num) {
+        if (num <= 1) {
+            return 1;
+        } else {
+            return num * arguments.callee(num - 1);
+        }
+    };
+    ``` 
+2. this:
+3. caller: 这个属性保存着 调用当前函数的 函数的引用
+    ```javascript
+    function outer() {
+        inner();
+    };
+
+    function inner() {
+        console.log(inner.caller);
+    };
+    outer();
+    ``` 
+#### 函数属性
+1. length:函数定义时的形参的个数
+2. call()方法
+3. apply()方法
