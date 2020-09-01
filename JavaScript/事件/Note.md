@@ -56,8 +56,9 @@ document.createElement( tagName) ：通过给定的标签名，创建一个标�
     * 可以先创建好子节点所需要的东西，然后在依附到父节点上。
     * 添加子节点主要步骤
       1. 创建节点：var newNode = document.createElement("div")
-      2. 添加内容：var content = document.createTextNode("HelloWorld");
-      3. 添加子元素：newNode.appendChild(content); ——子节点创建完成
+      2. 添加内容：var content = document.createTextNode("HelloWorld");  
+      3. 添加子元素：newNode.appendChild(content); ——子节点创建完成  
+        或者：newNode.innerHTML = "HelloWorld";  
       4. 显示到页面中：document.body.appendChild(newNode);
 
 **出现#text问题**

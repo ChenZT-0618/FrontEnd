@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        window.onload = function () {
+            // 方式1
+            var newNode = document.createElement("div");
+            newNode.innerHTML = "HelloWorld";
+            // 方式2
+            var newNode2 = document.createElement("div");
+            var content = document.createTextNode("HelloWorld2");
+            newNode2.appendChild(content);
+            document.body.appendChild(newNode);
+            document.body.appendChild(newNode2);
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
