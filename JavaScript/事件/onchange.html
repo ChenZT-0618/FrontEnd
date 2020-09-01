@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    window.onload = function () {
+        var test = document.getElementById("test");
+        test.onchange = function () {
+            console.log("内容发生改变");
+        }
+    }
+</script>
+
+<body>
+    <select name="select" id="test">
+        <option value="1">女生1</option>
+        <option value="2">女生2</option>
+        <option value="3">女生3</option>
+        <option value="4">女生4</option>
+    </select>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    /**
+     * 
+     * 验证规则：必须有数字、字母、下划线组成，长度在5~12个之间
+     *
+     */
+    function onclickfun() {
+        var user = document.getElementById("username");
+        uservalue = user.value;
+        // 验证某些规则。需要使用正则表达式
+        var patt = /^\w{5,12}$/;
+        if (patt.test(uservalue)) {
+            alert("用户名输入合法");
+        } else {
+            alert("用户名输入不合法");
+        }
+    }
+</script>
+
+<body>
+    用户名：<input type="text" id="username"><br />
+    <button onclick=onclickfun()>验证</button>
+</body>
+
+</html>

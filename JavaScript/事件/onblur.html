@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function fun1() {
+        console.log("静态注册，失去焦点事件");
+    }
+
+    window.onload = function () {
+        var pw = document.getElementById("password");
+        pw.onblur = function fun2() {
+            console.log("动态注册，失去焦点事件");
+        }
+    }
+</script>
+
+<body>
+
+    用户名：<input type="text" onblur=fun1()><br />
+    密码： <input type="password" id="password">
+</body>
+
+</html>
