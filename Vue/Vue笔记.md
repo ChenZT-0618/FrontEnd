@@ -1,11 +1,125 @@
-### Vue的options选项
+## Vue示例
 
-- el：决定Vue示例会绑定那个HTML元素
-- data：Vue示例对于的数据对象
-  - 组件(component)中的data选项必须是个函数
-- methods：Vue示例的一些方法
+### 1、输出HelloWorld
 
-### Vue的生命周期
+生成一个VUE对象，该VUE对象负责管理id 为app 的元素
+
+然后该元素就可以通过 {{message}} 去找VUE对象中对应的Key，然后输出对应的值，{{ }} 是Vue中一种特殊语法，用来显示Vue对象中data属性中对应key的value
+
+```vue
+<body>
+    <div id="app">{{data}}</div>
+</body>
+
+<!-- 引入VUE -->
+<script src="../js/vue.js"></script> 
+<script>
+    // 用let(变量) 或者 const(常量) 来接收返回值
+    const app = new Vue({
+        el: "#app", // 绑定要管理的元素
+        data: { // 定义数据键值对
+            message: "HelloWorld"
+        }
+    })
+</script>
+```
+
+代码解释：
+
+使用 new Vue()  语句来创建 VUE对象，并且传入一些属性（options）。
+
+- el 属性：觉得该Vue对象会绑定哪个页面元素。
+- data 属性：存放Vue对象的一些数据，用于显示在页面上。
+
+好处：数据和页面的处理分离开。前端页面只需专注与页面的设计，然后将需要显示数据的地方用**{{xxx}}** 标记出来。而数据内容就通过后端和VUE来负责生成和展示。
+
+### 2、列表展示
+
+使用 **v-for** 指令：迭代遍历数组、数字、对象
+
+```vue
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="item in movies">{{item}}</li>
+        </ul>
+    </div>
+</body>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            message: "helloworld",
+            movies: ["黑客帝国1", "黑客帝国2", "黑客帝国3"]
+        }
+    })
+</script>
+```
+
+### 3、计数器
+
+实现一个计数器，通过两个按钮 来增加或减少计数器显示的值
+
+学习新属性：method和新的指令 v-on:click / @click
+
+```vue
+<body>
+    <div id="app">
+        <h2>当前计数：{{conter}}</h2>
+        <button @click="add">+</button>
+        <button v-on:click="sub">-</button>
+    </div>
+
+</body>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            conter: 0
+        },
+        methods: {
+            add: function () {
+                this.conter++;
+            },
+            sub: function () {
+                this.conter--;
+            }
+        }
+    })
+</script>
+```
+
+代码说明：
+
+- methods属性：用来定义Vue对象的一些方法。
+- v-on:click ： 点击事件响应，@click 是简写
+  -  v-on 可以接收一个函数，表示需要调用的方法名称。
+  -  使用 v-on 指令的元素，需要在被包含在Vue对象绑定的元素里面
+
+## MVVM模型
+
+MVVM 是Model-View-ViewModel 的缩写，它是一种基于前端开发的架构模式，其核心是提供对View 和 ViewModel 的双向数据绑定，这使得ViewModel 的状态改变可以自动传递给 View，即所谓的数据双向绑定。
+
+MVVM由View，ViewModel，Model三部分组成。View层代表的是视图、模版，负责将数据模型转化为UI展现出来。Model层代表的是模型、数据，可以在Model层中定义数据修改和操作的业务逻辑。ViewModel层连接Model和View。
+
+在MVVM的架构下，View层和Model层并没有直接联系，而是通过ViewModel层进行交互。ViewModel层通过双向数据绑定将View层和Model层连接了起来，使得View层和Model层的同步工作完全是自动的。因此开发者只需关注业务逻辑，无需手动操作DOM，复杂的数据状态维护交给MVVM统一来管理。
+
+Vue.js 是一个提供了 MVVM 风格的双向数据绑定的 Javascript 库，专注于View 层。它的核心是 MVVM 中的 VM，也就是 ViewModel。 ViewModel负责连接 View 和 Model，保证视图和数据的一致性，这种轻量级的架构让前端开发更加高效、便捷。
+
+## Vue的options选项
+
+el：决定Vue示例会绑定那个HTML元素
+
+data：Vue示例对于的数据对象
+- 组件(component)中的data选项必须是个函数
+
+methods：Vue示例的一些方法
+
+## Vue的生命周期
 
 生命周期：事物从诞生到消亡的整个过程。
 
@@ -259,7 +373,5 @@ v-bind:style  的数组语法可以将多个样式对象应用到同一个元素
 </script>
 ```
 
-
-
-### 组件系统
+## 组件系统
 
