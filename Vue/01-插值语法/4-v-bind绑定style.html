@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .test {
+    font-style: italic;
+  }
+</style>
+
+<body>
+  <!-- 点击列表中的某一项，该项的文本变成红色 -->
+  <div id="app">
+    <h2 :style="{color:'red',fontSize:'50px'}">{{message}}</h2>
+    <h4 :style=styleObject>调用对象来绑定style</h4>
+    <h4 :style=[styleObject,fontStyle]>使用数组语法来绑定style</h4>
+  </div>
+</body>
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: "#app",
+    data: {
+      message: "v-bind绑定sytle -- 对象语法",
+      styleObject: {
+        color: "blue",
+        fontSize: '30px'
+      },
+      fontStyle: {
+        fontStyle: 'italic'
+      }
+    }
+  })
+</script>
+
+</html>

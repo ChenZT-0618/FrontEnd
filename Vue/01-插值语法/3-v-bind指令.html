@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+</head>
+
+<body>
+  <div id="app">
+    <h2>{{message}}</h2>
+    <!-- img标签同理，只要在属于动态绑定数据的属性前面加上 v-bind: 或者 : 即可  -->
+    <a v-bind:href="aHref">基本用法</a><br>
+    <a :href="aHref">简写</a>
+  </div>
+</body>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: "#app",
+    data: {
+      message: "v-bind指令基本使用方法",
+      aHref: "https://www.baidu.com",
+    }
+  })
+</script>
+
+
+</html>

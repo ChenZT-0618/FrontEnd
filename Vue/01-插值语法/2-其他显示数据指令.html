@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h2>v-text指令</h2>
+        <!-- 等同于Mustache语法，但是会覆盖标签之间的内容 -->
+        <h4 v-text="message"></h4>
+        <h2>v-once指令</h2>
+        <h4 v-once>表示该元素只渲染一次：{{message}}</h4>
+        <h2>v-html指令</h2>
+        <h4>没使用v-html指令：{{url}}</h4>
+        <h4 v-html="url"></h4>
+        <h2>v-pre指令</h2>
+        <h4>没使用v-pre指令：{{message}}</h4>
+        <h4 v-pre>使用v-pre指令：{{message}}</h4>
+    </div>
+</body>
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            message: "HelloWorld",
+            url: "<a href='https://www.baidu.com'>百度一下</a>"
+        }
+    })
+</script>
+
+</html>

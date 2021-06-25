@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .static {
+    font-style: italic;
+  }
+
+  .style1 {
+    color: red;
+  }
+
+  .style2 {
+    color: blueviolet;
+  }
+</style>
+
+<body>
+  <div id="app">
+    <h2>{{message}}</h2>
+    <h3 class="static" v-bind:class="{style1:isStyle1,style2:isStyle2}">样式显示</h3>
+    <button @click="btnClick">样式切换</button>
+    <h2>{{message2}}</h2>
+    <h3 :class="[StyleClass1]">样式显示</h3>
+  </div>
+</body>
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: "#app",
+    data: {
+      message: "v-bind动态绑定class -- 对象语句",
+      message2: "v-bind动态绑定class -- 数组语句",
+      isStyle1: true,
+      isStyle2: false,
+      StyleClass1: 'style1'
+    },
+    methods: {
+      btnClick: function () {
+        this.isStyle1 = !this.isStyle1;
+        this.isStyle2 = !this.isStyle2;
+      }
+    }
+  })
+</script>
+
+</html>
